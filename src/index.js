@@ -1,18 +1,54 @@
-const calculator = {
+document.addEventListener('DOMContentLoaded', startApp);
 
-  /*
-   * take two numbers, and return the sum of them
-   */
-  sum(x,y){
-    return x + y;
-  },
+let firstNumber = '';
+let secondNumber = '';
+let operation = '';
 
 
-  /*
-   * take two numbers, and return the subtraction of them
-   */
-  subtract(x,y){
-    return x - y;
-  },
+function startApp() {
 
+  let buttonsContainer = document.querySelector('.buttons-container');
+
+  buttonsContainer.addEventListener('click', function eventHandler(event) {
+    let selectedButton = event.target.innerText;
+
+    let isNumber = /\d/g.test(selectedButton);
+    let isOperation = /\+|\x|\-|\//.test(selectedButton);
+    let isEqual = /=/g.test(selectedButton);
+
+    /*
+    * only save the operation if 
+    * - first number exist 
+    * - no operation is saved before
+    */
+    if (isOperation && firstNumber && !operation)
+      operation = selectedButton;
+
+
+    if (isNumber)
+      if (!firstNumber)
+        firstNumber += selectedButton;
+      else
+        secondNumber += selectedButton;
+
+
+    if (isEqual) {
+      let result = calculateTheResult();
+      console.log({ result });
+      firstNumber = '';
+      secondNumber = '';
+      operation = '';
+    }
+
+    console.log({ firstNumber, secondNumber, operation });
+  });
+
+}
+
+function calculateTheResult() {
+  switch (operation) {
+    case '+': {
+      return calculator.sum(firstNumber, secondNumber);
+    }
+  }
 }

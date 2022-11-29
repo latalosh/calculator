@@ -1,0 +1,38 @@
+body{
+  background: #fafafa;
+}
+
+#result-container{
+  max-width: max-content;
+  margin: 0 auto;
+}
+
+.buttons-container{
+  display: grid;
+  grid-template-columns: repeat(4, 50px);
+  grid-template-rows: repeat(4, 50px);
+  grid-gap: 4px;
+  margin: 0 auto;
+  max-width: max-content;
+}
+
+.buttons-container button{
+  background: lightgray;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 500;
+}
+
+.buttons-container button:hover{
+  cursor:pointer;
+  background: #8587ff;
+  transition: all 0.2s ease-in-out;
+}
