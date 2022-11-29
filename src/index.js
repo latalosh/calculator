@@ -15,4 +15,11 @@ const calculator = {
     return x - y;
   },
 
+
+  /*
+   * take two numbers, and return the multiplication of them
+   */
+  multiply(x,y){
+    return x * y;
+  },
 }
