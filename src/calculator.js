@@ -15,4 +15,7 @@ const calculator = {
     return x - y;
   },
 
+  divide(x,y){
+    return x / y;
+  },
 }
